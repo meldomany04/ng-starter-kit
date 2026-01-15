@@ -1,0 +1,358 @@
+
+/* Add these RTL styles to your global styles.scss file */
+
+/* RTL Base Styles */
+.layout-rtl {
+    text-align: right;
+}
+
+/* Layout RTL Styles */
+.layout-rtl .layout-topbar-logo-container {
+    flex-direction: row;
+}
+
+.layout-rtl .layout-topbar-actions {
+    flex-direction: row;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+}
+
+.layout-rtl .layout-config-menu {
+    flex-direction: row;
+}
+
+/* Sidebar RTL Styles */
+.layout-rtl .layout-sidebar {
+    right: 0;
+    left: auto;
+}
+
+.layout-rtl.layout-static .layout-sidebar {
+    right: 0;
+    left: auto;
+}
+
+.layout-rtl.layout-overlay .layout-sidebar {
+    right: 0;
+    left: auto;
+    transform: translateX(100%);
+}
+
+.layout-rtl.layout-overlay.layout-overlay-active .layout-sidebar {
+    transform: translateX(0);
+}
+
+/* Menu RTL Styles */
+.layout-rtl .layout-menu .layout-menuitem-text {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+.layout-rtl .layout-menu .layout-menuitem-icon {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+.layout-rtl .layout-menu ul {
+    padding-right: 0;
+    padding-left: 1rem;
+}
+
+.layout-rtl .layout-menuitem-root-text {
+    text-align: right;
+}
+
+/* Main Container RTL Styles - Static Mode */
+.layout-rtl.layout-static .layout-main-container {
+    margin-right: 22rem;
+    margin-left: 0;
+}
+
+.layout-rtl.layout-static.layout-static-inactive .layout-main-container {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Main Container RTL Styles - Overlay Mode */
+.layout-rtl.layout-overlay .layout-main-container {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Overlay sidebar positioning */
+.layout-rtl.layout-overlay .layout-sidebar {
+    position: fixed;
+    right: -250px;
+    left: auto;
+    transform: none;
+}
+
+.layout-rtl.layout-overlay.layout-overlay-active .layout-sidebar {
+    right: 0;
+    left: auto;
+    transform: none;
+}
+
+/* Main Container RTL Styles - Mobile */
+.layout-rtl.layout-mobile-active .layout-main-container {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* Mask for RTL */
+.layout-rtl .layout-mask {
+    right: auto;
+    left: 0;
+}
+
+/* Desktop Static Mode - Collapsed */
+@media screen and (min-width: 992px) {
+    .layout-rtl.layout-static .layout-sidebar {
+        right: 0;
+        left: auto;
+    }
+    
+    .layout-rtl.layout-static.layout-static-inactive .layout-sidebar {
+        transform: translateX(100%);
+        right: 0;
+        left: auto;
+    }
+    
+    .layout-rtl.layout-static .layout-main-container {
+        margin-left: 0;
+        margin-right: 22rem;
+    }
+    
+    .layout-rtl.layout-static.layout-static-inactive .layout-main-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* Mobile RTL Styles */
+@media screen and (max-width: 991px) {
+    .layout-rtl .layout-main-container {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .layout-rtl .layout-sidebar {
+                transform: translateX(100%);
+        right: 0;
+        left: auto;
+    }
+    
+    .layout-rtl.layout-mobile-active .layout-sidebar {
+        right: 0;
+        left: auto;
+    }
+}
+
+/* PrimeNG Component RTL Overrides */
+.layout-rtl .p-button-icon-left {
+    margin-right: 0;
+    margin-left: 0.5rem;
+}
+
+.layout-rtl .p-button-icon-right {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+.layout-rtl .p-dialog .p-dialog-header-icons {
+    right: auto;
+    left: 1.5rem;
+}
+
+.layout-rtl .p-dropdown-trigger {
+    right: auto;
+    left: 0;
+}
+
+.layout-rtl .p-multiselect-trigger {
+    right: auto;
+    left: 0;
+}
+
+.layout-rtl .p-datatable .p-sortable-column-icon {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+.layout-rtl .p-checkbox-box .p-checkbox-icon {
+    right: 0;
+}
+
+.layout-rtl .p-inputgroup > *:not(:last-child) {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.layout-rtl .p-inputgroup > *:not(:first-child) {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Breadcrumb RTL */
+.layout-rtl .p-breadcrumb ul li .p-menuitem-link .p-menuitem-text {
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+.layout-rtl .p-breadcrumb ul li.p-breadcrumb-chevron {
+    margin: 0 0.5rem 0 0;
+    transform: rotate(180deg);
+}
+
+/* Steps RTL */
+.layout-rtl .p-steps .p-steps-item .p-menuitem-link .p-steps-number {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* Menu Items RTL */
+.layout-rtl .p-menu .p-menuitem-link .p-menuitem-icon {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+.layout-rtl .p-menu .p-submenu-icon {
+    right: auto;
+    left: 0.5rem;
+    transform: rotate(180deg);
+}
+
+/* Toast RTL */
+.layout-rtl .p-toast-top-right {
+    right: auto;
+    left: 20px;
+}
+
+.layout-rtl .p-toast-top-left {
+    left: auto;
+    right: 20px;
+}
+
+.layout-rtl .p-toast-bottom-right {
+    right: auto;
+    left: 20px;
+}
+
+.layout-rtl .p-toast-bottom-left {
+    left: auto;
+    right: 20px;
+}
+
+.layout-rtl .p-toast .p-toast-message .p-toast-message-content .p-toast-message-icon {
+    margin-left: 1rem;
+    margin-right: 0;
+}
+
+/* Panel Menu RTL */
+.layout-rtl .p-panelmenu .p-panelmenu-header-content .p-panelmenu-header-action {
+    flex-direction: row-reverse;
+}
+
+.layout-rtl .p-panelmenu .p-menuitem-icon {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* Overlay RTL */
+.layout-rtl .p-sidebar-right {
+    right: auto;
+    left: 0;
+}
+
+.layout-rtl .p-sidebar-left {
+    left: auto;
+    right: 0;
+}
+
+/* Calendar RTL */
+.layout-rtl .p-datepicker .p-datepicker-header .p-datepicker-prev {
+    right: 0;
+    left: auto;
+    transform: rotate(180deg);
+}
+
+.layout-rtl .p-datepicker .p-datepicker-header .p-datepicker-next {
+    left: 0;
+    right: auto;
+    transform: rotate(180deg);
+}
+
+/* Paginator RTL */
+.layout-rtl .p-paginator .p-paginator-first,
+.layout-rtl .p-paginator .p-paginator-prev {
+    transform: rotate(180deg);
+}
+
+.layout-rtl .p-paginator .p-paginator-next,
+.layout-rtl .p-paginator .p-paginator-last {
+    transform: rotate(180deg);
+}
+
+/* Carousel RTL */
+.layout-rtl .p-carousel .p-carousel-prev {
+    transform: rotate(180deg);
+}
+
+.layout-rtl .p-carousel .p-carousel-next {
+    transform: rotate(180deg);
+}
+
+/* Tabs RTL */
+.layout-rtl .p-tabview .p-tabview-nav li .p-tabview-nav-link .p-tabview-close {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+/* Card RTL */
+.layout-rtl .p-card .p-card-header img {
+    margin-left: 0;
+}
+
+/* Chip RTL */
+.layout-rtl .p-chip .p-chip-icon {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+.layout-rtl .p-chip .p-chip-remove-icon {
+    margin-right: 0.5rem;
+    margin-left: 0;
+}
+
+/* FileUpload RTL */
+.layout-rtl .p-fileupload .p-fileupload-buttonbar .p-button {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* Message RTL */
+.layout-rtl .p-message .p-message-icon {
+    margin-left: 0.5rem;
+    margin-right: 0;
+}
+
+/* Transition for smooth RTL/LTR switching */
+.layout-sidebar,
+.layout-main-container,
+.layout-topbar {
+    transition: margin 0.3s ease-in-out, transform 0.3s ease-in-out, right 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+/* Ensure sidebar has proper z-index */
+.layout-sidebar {
+    z-index: 999;
+}
+
+/* Ensure mask is behind sidebar but above content */
+.layout-mask {
+    z-index: 998;
+}
