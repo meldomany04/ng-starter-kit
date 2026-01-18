@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { OAuthService } from 'angular-oauth2-oidc';
 import { HttpClient } from '@angular/common/http';
-import { authConfig } from 'src/auth.config';
+import { EnvironmentService } from './environment.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,8 +9,10 @@ import { authConfig } from 'src/auth.config';
 export class AuthService {
   private loginInProgress = false;
 
-  constructor(private oauthService: OAuthService, private http: HttpClient) {
-    this.oauthService.configure(authConfig);
+  constructor(private oauthService: OAuthService, 
+    private http: HttpClient,
+    private environmentService: EnvironmentService) {
+    this.oauthService.configure(environmentService.authConfig);
     this.oauthService.setupAutomaticSilentRefresh();
   }
 
@@ -22,19 +24,14 @@ export class AuthService {
   }
 
   login() {
-    if(this.isLoggedIn){
+    if (this.isLoggedIn || this.loginInProgress) {
       return;
     }
 
-    if (this.loginInProgress) {
-      return;
-    }
-    
     this.loginInProgress = true;
     this.oauthService.initCodeFlow();
-    
-    this.loginInProgress = false;
   }
+
 
   async logout() {
     if(!this.isLoggedIn){
@@ -51,9 +48,5 @@ export class AuthService {
 
   get accessToken(): string {
     return this.oauthService.getAccessToken();
-  }
-
-  me(){
-    this.http.get('https://localhost:7289/api/products/me' ).subscribe({});
   }
 }

@@ -2,17 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
-import { AuthService } from 'src/services/auth.service.ts';
+import { AuthService } from 'src/services/core/auth.service.ts';
+import { ProductsService } from 'src/services/core/products.service';
 @Component({
     selector: 'app-dashboard',
     imports: [CardModule, ButtonModule, TranslateModule],
     templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private productService: ProductsService) {}
 
   ngOnInit() {
-    // this.me()
+    this.me()
   }
 
   async logout(){
@@ -20,6 +21,6 @@ export class DashboardComponent implements OnInit {
   }
 
   me(){
-    this.authService.me();
+    this.productService.me();
   }
 }

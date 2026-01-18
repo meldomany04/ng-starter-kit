@@ -1,7 +1,7 @@
 import { Injectable, effect, signal, computed } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
-import { CultureCookieService } from 'src/services/culture/culture-cookie.service ';
+import { CultureCookieService } from 'src/services/core/culture-cookie.service ';
 
 export interface layoutConfig {
     preset?: string;

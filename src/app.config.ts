@@ -6,10 +6,11 @@ import Aura from '@primeuix/themes/aura';
 import { providePrimeNG } from 'primeng/config';
 import { appRoutes } from './app.routes';
 import { provideOAuthClient } from 'angular-oauth2-oidc';
-import { AuthService } from './services/auth.service.ts';
-import { AuthInterceptor } from './interceptors/auth-interceptor';
+import { AuthService } from './services/core/auth.service.ts';
+import { AuthInterceptor } from './interceptors/core/auth.interceptor';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TRANSLATE_HTTP_LOADER_CONFIG, TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LoadingInterceptor } from './interceptors/core/loading.interceptor';
 
 function initAuth(authService: AuthService) {
   return () => authService.initLogin();
@@ -29,7 +30,7 @@ export const appConfig: ApplicationConfig = {
             withEnabledBlockingInitialNavigation()
         ),
         provideHttpClient(
-            withInterceptors([AuthInterceptor])
+            withInterceptors([AuthInterceptor, LoadingInterceptor])
         ),
         provideOAuthClient(),
         {
@@ -62,7 +63,7 @@ export const appConfig: ApplicationConfig = {
         },
         importProvidersFrom(
         TranslateModule.forRoot({
-            defaultLanguage: 'ar',
+            fallbackLang: 'ar',
             loader: {
             provide: TranslateLoader,
             useFactory: httpLoaderFactory,
